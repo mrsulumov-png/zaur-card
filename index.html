@@ -9,6 +9,7 @@
     :root{
       --brand:#3E8757;
       --brand-dark:#23402C;
+      --tg:#137BA5;
       --bg:#f3f3f3;
       --card:#fff;
       --line:#ededed;
@@ -81,9 +82,12 @@
     }
     .actions a:hover{background:rgba(255,255,255,.10)}
 
-    /* ===== VIDEO BUTTON ===== */
+    /* ===== VIDEO BUTTON (вариант 2: как actions) ===== */
     .videoBar{
-      margin:12px 0 0;
+      margin:12px 16px 0;  /* те же боковые отступы, что визуально у верхних кнопок */
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
     .videoBtn{
       width:100%;
@@ -91,10 +95,9 @@
       background:var(--brand-dark);
       color:#fff;
       padding:12px 14px;
-      border-radius:12px;
+      border-radius:0;      /* радиус задаёт videoBar */
       font-weight:900;
       cursor:pointer;
-      box-shadow:var(--shadow);
     }
     .videoBtn small{
       display:block;
@@ -146,16 +149,18 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      margin:14px 16px;
       padding:14px 16px;
-      background:var(--brand);
       color:#fff;
       text-decoration:none;
       border-radius:12px;
       font-weight:900;
       gap:10px;
       box-shadow:0 10px 18px rgba(0,0,0,.08);
+      text-align:center;
+      white-space:nowrap;
     }
+    .btn.wa{ background:var(--brand); }
+    .btn.tg{ background:var(--tg); }
     .btn.secondary{
       background:#fff;
       color:var(--text);
@@ -165,6 +170,26 @@
     .icoimg{
       width:20px;
       height:20px;
+    }
+
+    /* ряд из двух кнопок */
+    .btnRow{
+      display:flex;
+      gap:12px;
+      margin:14px 16px 0;
+    }
+    .btnRow .btn{
+      flex:1;
+      margin:0;
+    }
+
+    /* нижняя кнопка "сохранить контакт" */
+    .btnSaveWrap{
+      margin:12px 16px 16px;
+    }
+    .btnSaveWrap .btn{
+      width:100%;
+      margin:0;
     }
 
     /* ===== MODAL ===== */
@@ -206,13 +231,20 @@
       background:#000;
     }
 
-    /* Мобайл: без лишних полей, как раньше */
+    /* Мобайл: без лишних полей, и две кнопки можно в столбик на очень узких */
     @media (max-width:520px){
       body{background:var(--bg)}
       .shell{max-width:100%; padding:0}
       .hero{border-radius:0; box-shadow:none}
-      .videoBtn{box-shadow:none; border-radius:10px}
       .card{border-radius:12px; margin:14px auto; max-width:520px}
+
+      .videoBar{
+        margin:12px 16px 0;
+        box-shadow:none;
+      }
+    }
+    @media (max-width:380px){
+      .btnRow{flex-direction:column;}
     }
   </style>
 </head>
@@ -229,7 +261,7 @@
       <div class="actions">
         <a href="tel:+79267141746">📞<br>ПОЗВОНИТЬ</a>
         <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
-        <a href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank">📍<br>КАРТА</a>
+        <a href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank" rel="noopener">📍<br>КАРТА</a>
       </div>
     </div>
 
@@ -264,7 +296,7 @@
         <div>
           <div class="value">Москва, Нагорная ул., 17, к. 6</div>
           <div class="label">Адрес</div>
-          <a class="linkish" href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank">
+          <a class="linkish" href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank" rel="noopener">
             Показать на карте
           </a>
         </div>
@@ -273,7 +305,7 @@
       <div class="row">
         <div>
           <div class="value">
-            <a class="linkish" href="https://sulumov.com" target="_blank">sulumov.com</a>
+            <a class="linkish" href="https://sulumov.com" target="_blank" rel="noopener">sulumov.com</a>
           </div>
           <div class="label">Сайт</div>
         </div>
@@ -282,7 +314,7 @@
       <div class="row">
         <div>
           <div class="value">
-            <a class="linkish" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank">
+            <a class="linkish" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
               Оставить отзыв в ПроДокторов
             </a>
           </div>
@@ -290,19 +322,25 @@
         </div>
       </div>
 
-      <a class="btn" href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank">
-        <img src="wa.png" class="icoimg" alt="WhatsApp">
-        НАПИСАТЬ В WHATSAPP
-      </a>
+      <!-- две кнопки рядом -->
+      <div class="btnRow">
+        <a class="btn wa" href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank" rel="noopener">
+          <img src="wa.png" class="icoimg" alt="WhatsApp">
+          WHATSAPP
+        </a>
 
-      <a class="btn secondary" href="https://t.me/doctor_zaur" target="_blank">
-        <img src="tg.png" class="icoimg" alt="Telegram">
-        НАПИСАТЬ В TELEGRAM
-      </a>
-      <a class="btn secondary" href="contact.vcf">
-  👤 СОХРАНИТЬ КОНТАКТ
-</a>
+        <a class="btn tg" href="https://t.me/doctor_zaur" target="_blank" rel="noopener">
+          <img src="tg.png" class="icoimg" alt="Telegram">
+          TELEGRAM
+        </a>
+      </div>
 
+      <!-- белая кнопка ниже -->
+      <div class="btnSaveWrap">
+        <a class="btn secondary" href="contact.vcf">
+          👤 СОХРАНИТЬ КОНТАКТ
+        </a>
+      </div>
 
     </div>
 
