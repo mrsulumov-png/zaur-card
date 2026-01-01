@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Сулумов;Заур;Рамзанович;;
+FN:Сулумов Заур Рамзанович
+TITLE:Врач травматолог-ортопед
+TEL;TYPE=CELL:+79267141746
+EMAIL;TYPE=WORK:drsulumov@gmail.com
+URL:https://sulumov.com
+ADR;TYPE=WORK:;;Нагорная ул.\, 17\, к. 6;Москва;;;Россия
+X-SOCIALPROFILE;type=telegram:https://t.me/doctor_zaur
+X-SOCIALPROFILE;type=whatsapp:https://api.whatsapp.com/send?phone=79267141746
+END:VCARD

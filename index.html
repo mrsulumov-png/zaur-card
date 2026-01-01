@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Сулумов Заур Рамзанович — контакты</title>
+
+  <style>
+    :root{
+      --brand:#3E8757;
+      --bg:#f3f3f3;
+      --card:#fff;
+      --line:#ededed;
+      --text:#222;
+      --muted:#7a7a7a;
+    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+    .hero{background:var(--brand);color:#fff;padding:36px 16px 18px;text-align:center}
+    .avatar{
+      width:96px;height:96px;border-radius:50%;
+      object-fit:cover;border:3px solid rgba(255,255,255,.35);
+      background:#fff;
+    }
+    h1{margin:14px 0 6px;font-size:26px;font-weight:800}
+    .subtitle{opacity:.95;font-size:15px}
+    .actions{display:flex;gap:1px;margin-top:18px}
+    .actions a{
+      flex:1;padding:14px 8px;text-decoration:none;color:#fff;
+      font-weight:800;background:rgba(255,255,255,.18)
+    }
+
+    .card{
+      max-width:520px;margin:14px auto;background:var(--card);
+      border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);overflow:hidden
+    }
+    .row{display:flex;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+    .value{font-size:16px;font-weight:700}
+    .label{font-size:12px;color:var(--muted);margin-top:3px}
+
+    .btn{
+      display:block;margin:14px 16px;padding:14px 16px;
+      background:var(--brand);color:#fff;text-align:center;
+      text-decoration:none;border-radius:10px;font-weight:900
+    }
+    .btn.secondary{
+      background:#fff;color:var(--text);
+      border:1px solid #e6e6e6
+    }
+    .social a{
+      display:block;margin-top:6px;
+      color:var(--brand);font-weight:800;text-decoration:none
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <img src="photo.jpg" class="avatar" alt="Фото">
+  <h1>Сулумов Заур Рамзанович</h1>
+  <div class="subtitle">Врач травматолог-ортопед</div>
+
+  <div class="actions">
+    <a href="tel:+79267141746">📞<br>ПОЗВОНИТЬ</a>
+    <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Москва,+Нагорная+ул.,+17,+к.+6" target="_blank">📍<br>КАРТА</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div>
+      <div class="value">+7 926 714-17-46</div>
+      <div class="label">Телефон</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <div class="value">drsulumov@gmail.com</div>
+      <div class="label">Email</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <div class="value">Москва, Нагорная ул., 17, к. 6</div>
+      <div class="label">Адрес</div>
+    </div>
+  </div>
+
+  <div class="row social">
+    <div>
+      <div class="value">Мессенджеры</div>
+      <a href="https://t.me/doctor_zaur" target="_blank">Telegram: @doctor_zaur</a>
+      <a href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank">
+        WhatsApp: написать
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <div class="value">sulumov.com</div>
+      <div class="label">Сайт</div>
+    </div>
+  </div>
+
+  <a class="btn" href="contact.vcf" download>👤 СОХРАНИТЬ КОНТАКТ</a>
+
+  <a class="btn secondary" href="#"
+     onclick="
+       if(navigator.share){
+         navigator.share({title:document.title,url:location.href});
+       } else {
+         navigator.clipboard.writeText(location.href);
+         alert('Ссылка скопирована');
+       }
+       return false;">
+    🔗 ПОДЕЛИТЬСЯ СТРАНИЦЕЙ
+  </a>
+</div>
+
+</body>
+</html>
