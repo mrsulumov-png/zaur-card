@@ -17,9 +17,8 @@
       --muted:#7a7a7a;
       --shadow:0 12px 28px rgba(0,0,0,.10);
       --radius:14px;
-      --max:560px; /* визуальная "ширина телефона" на ПК */
+      --max:560px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -31,14 +30,8 @@
       min-height:100vh;
     }
 
-    /* Центруем весь контент на ПК, как "телефон" */
-    .shell{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:18px 14px 28px;
-    }
+    .shell{max-width:var(--max); margin:0 auto; padding:18px 14px 28px;}
 
-    /* ===== HEADER ===== */
     .hero{
       background:var(--brand);
       color:#fff;
@@ -54,37 +47,24 @@
       border:3px solid rgba(255,255,255,.35);
       background:#fff;
     }
-    h1{
-      margin:14px 0 6px;
-      font-size:26px;
-      font-weight:800
-    }
-    .subtitle{
-      opacity:.95;
-      font-size:15px
-    }
+    h1{margin:14px 0 6px; font-size:26px; font-weight:800}
+    .subtitle{opacity:.95; font-size:15px}
 
     .actions{
-      display:flex;
-      gap:1px;
-      margin-top:16px;
-      border-radius:12px;
-      overflow:hidden;
+      display:flex; gap:1px; margin-top:16px;
+      border-radius:12px; overflow:hidden;
       background:rgba(255,255,255,.12);
     }
     .actions a{
-      flex:1;
-      padding:14px 8px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:800;
+      flex:1; padding:14px 8px;
+      text-decoration:none; color:#fff; font-weight:800;
       background:transparent;
     }
     .actions a:hover{background:rgba(255,255,255,.10)}
 
-    /* ===== VIDEO BUTTON (вариант 2: как actions) ===== */
+    /* Video bar (variant 2 like actions) */
     .videoBar{
-      margin:12px 16px 0;  /* те же боковые отступы, что визуально у верхних кнопок */
+      margin:12px 16px 0;
       border-radius:12px;
       overflow:hidden;
       box-shadow:var(--shadow);
@@ -95,65 +75,33 @@
       background:var(--brand-dark);
       color:#fff;
       padding:12px 14px;
-      border-radius:0;      /* радиус задаёт videoBar */
+      border-radius:0;
       font-weight:900;
       cursor:pointer;
     }
-    .videoBtn small{
-      display:block;
-      margin-top:4px;
-      font-weight:600;
-      opacity:.95;
-    }
+    .videoBtn small{display:block; margin-top:4px; font-weight:600; opacity:.95;}
 
-    /* ===== CARD ===== */
     .card{
       margin:14px 0 0;
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      overflow:hidden
+      overflow:hidden;
     }
-    .row{
-      display:flex;
-      gap:12px;
-      padding:14px 16px;
-      border-top:1px solid var(--line)
-    }
+    .row{display:flex; gap:12px; padding:14px 16px; border-top:1px solid var(--line);}
     .row:first-child{border-top:none}
-    .value{
-      font-size:16px;
-      font-weight:700
-    }
-    .label{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:3px
-    }
+    .value{font-size:16px; font-weight:700}
+    .label{font-size:12px; color:var(--muted); margin-top:3px}
 
-    a.clean{
-      color:inherit;
-      text-decoration:none
-    }
-    a.linkish{
-      color:var(--brand);
-      text-decoration:none;
-      font-weight:800
-    }
-    a.linkish:hover{
-      text-decoration:underline
-    }
+    a.clean{color:inherit; text-decoration:none}
+    a.linkish{color:var(--brand); text-decoration:none; font-weight:800}
+    a.linkish:hover{text-decoration:underline}
 
-    /* ===== BUTTONS ===== */
     .btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       padding:14px 16px;
-      color:#fff;
-      text-decoration:none;
-      border-radius:12px;
-      font-weight:900;
+      color:#fff; text-decoration:none;
+      border-radius:12px; font-weight:900;
       gap:10px;
       box-shadow:0 10px 18px rgba(0,0,0,.08);
       text-align:center;
@@ -167,81 +115,39 @@
       border:1px solid #e6e6e6;
       box-shadow:none;
     }
-    .icoimg{
-      width:20px;
-      height:20px;
-    }
+    .icoimg{width:20px; height:20px;}
 
-    /* ряд из двух кнопок */
-    .btnRow{
-      display:flex;
-      gap:12px;
-      margin:14px 16px 0;
-    }
-    .btnRow .btn{
-      flex:1;
-      margin:0;
-    }
+    .btnRow{display:flex; gap:12px; margin:14px 16px 0;}
+    .btnRow .btn{flex:1; margin:0;}
 
-    /* нижняя кнопка "сохранить контакт" */
-    .btnSaveWrap{
-      margin:12px 16px 16px;
-    }
-    .btnSaveWrap .btn{
-      width:100%;
-      margin:0;
-    }
+    .btnSaveWrap{margin:12px 16px 16px;}
+    .btnSaveWrap .btn{width:100%; margin:0;}
 
-    /* ===== MODAL ===== */
+    /* Modal */
     #videoModal{
-      display:none;
-      position:fixed;
-      inset:0;
+      display:none; position:fixed; inset:0;
       background:rgba(0,0,0,.65);
-      z-index:9999;
-      padding:20px;
+      z-index:9999; padding:20px;
     }
     #videoModal .box{
-      max-width:820px;
-      margin:40px auto;
-      background:#fff;
-      border-radius:16px;
-      overflow:hidden;
+      max-width:820px; margin:40px auto;
+      background:#fff; border-radius:16px; overflow:hidden;
       box-shadow:0 18px 40px rgba(0,0,0,.30);
     }
     #videoModal .head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 14px;
-      font-weight:900;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 14px; font-weight:900;
     }
-    #videoModal .close{
-      border:none;
-      background:transparent;
-      font-size:22px;
-      cursor:pointer;
-    }
-    #videoModal .body{
-      padding:0 14px 14px;
-    }
-    #videoPlayer{
-      width:100%;
-      border-radius:12px;
-      background:#000;
-    }
+    #videoModal .close{border:none; background:transparent; font-size:22px; cursor:pointer;}
+    #videoModal .body{padding:0 14px 14px;}
+    #videoPlayer{width:100%; border-radius:12px; background:#000;}
 
-    /* Мобайл: без лишних полей, и две кнопки можно в столбик на очень узких */
     @media (max-width:520px){
       body{background:var(--bg)}
       .shell{max-width:100%; padding:0}
       .hero{border-radius:0; box-shadow:none}
       .card{border-radius:12px; margin:14px auto; max-width:520px}
-
-      .videoBar{
-        margin:12px 16px 0;
-        box-shadow:none;
-      }
+      .videoBar{margin:12px 16px 0; box-shadow:none;}
     }
     @media (max-width:380px){
       .btnRow{flex-direction:column;}
@@ -250,119 +156,243 @@
 </head>
 
 <body>
-
   <div class="shell">
 
     <div class="hero">
       <img src="photo.jpg" class="avatar" alt="Фото">
-      <h1>Сулумов Заур Рамзанович</h1>
-      <div class="subtitle">Врач травматолог-ортопед</div>
+
+      <h1 id="t_name">Сулумов Заур Рамзанович</h1>
+      <div class="subtitle" id="t_title">Врач травматолог-ортопед</div>
 
       <div class="actions">
-        <a href="tel:+79267141746">📞<br>ПОЗВОНИТЬ</a>
-        <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
-        <a href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank" rel="noopener">📍<br>КАРТА</a>
+        <a id="a_call" href="tel:+79267141746">📞<br><span id="t_call">ПОЗВОНИТЬ</span></a>
+        <a id="a_email" href="mailto:drsulumov@gmail.com">✉️<br><span id="t_email">EMAIL</span></a>
+        <a id="a_map_top" href="#" target="_blank" rel="noopener">📍<br><span id="t_map">КАРТА</span></a>
       </div>
     </div>
 
     <div class="videoBar">
       <button class="videoBtn" onclick="openVideo()">
-        🎥 Видеовизитка врача
-        <small>1 минута — нажмите, чтобы посмотреть</small>
+        <span id="t_video">🎥 Видеовизитка врача</span>
+        <small id="t_video_hint">1 минута — нажмите, чтобы посмотреть</small>
       </button>
     </div>
 
     <div class="card">
+      <div class="row">
+        <div>
+          <div class="value"><a class="clean" href="tel:+79267141746">+7 926 714-17-46</a></div>
+          <div class="label" id="t_phone_label">Телефон</div>
+        </div>
+      </div>
 
       <div class="row">
         <div>
-          <div class="value">
-            <a class="clean" href="tel:+79267141746">+7 926 714-17-46</a>
-          </div>
-          <div class="label">Телефон</div>
+          <div class="value"><a class="clean" href="mailto:drsulumov@gmail.com">drsulumov@gmail.com</a></div>
+          <div class="label" id="t_email_label">Email</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="value" id="t_addr_value">Москва, Нагорная ул., 17, к. 6</div>
+          <div class="label" id="t_addr_label">Адрес</div>
+          <a class="linkish" id="a_map_inline" href="#" target="_blank" rel="noopener">Показать на карте</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="value"><a class="linkish" href="https://sulumov.com" target="_blank" rel="noopener">sulumov.com</a></div>
+          <div class="label" id="t_site_label">Сайт</div>
         </div>
       </div>
 
       <div class="row">
         <div>
           <div class="value">
-            <a class="clean" href="mailto:drsulumov@gmail.com">drsulumov@gmail.com</a>
-          </div>
-          <div class="label">Email</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <div class="value">Москва, Нагорная ул., 17, к. 6</div>
-          <div class="label">Адрес</div>
-          <a class="linkish" href="https://yandex.ru/maps/?text=Москва%2C+Нагорная+ул.%2C+17%2C+к.+6" target="_blank" rel="noopener">
-            Показать на карте
-          </a>
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <div class="value">
-            <a class="linkish" href="https://sulumov.com" target="_blank" rel="noopener">sulumov.com</a>
-          </div>
-          <div class="label">Сайт</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <div class="value">
-            <a class="linkish" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
+            <a class="linkish" id="a_review" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
               Оставить отзыв в ПроДокторов
             </a>
           </div>
-          <div class="label">Отзывы пациентов</div>
+          <div class="label" id="t_review_label">Отзывы пациентов</div>
         </div>
       </div>
 
-      <!-- две кнопки рядом -->
       <div class="btnRow">
         <a class="btn wa" href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank" rel="noopener">
           <img src="wa.png" class="icoimg" alt="WhatsApp">
-          WHATSAPP
+          <span id="t_whatsapp">WHATSAPP</span>
         </a>
 
         <a class="btn tg" href="https://t.me/doctor_zaur" target="_blank" rel="noopener">
           <img src="tg.png" class="icoimg" alt="Telegram">
-          TELEGRAM
+          <span id="t_telegram">TELEGRAM</span>
         </a>
       </div>
 
-      <!-- белая кнопка ниже -->
       <div class="btnSaveWrap">
         <a class="btn secondary" href="contact.vcf">
-          👤 СОХРАНИТЬ КОНТАКТ
+          👤 <span id="t_save">СОХРАНИТЬ КОНТАКТ</span>
         </a>
       </div>
-
     </div>
 
   </div>
 
-  <!-- ===== VIDEO MODAL ===== -->
+  <!-- VIDEO MODAL -->
   <div id="videoModal">
     <div class="box">
       <div class="head">
-        <div>Видеовизитка</div>
+        <div id="t_modal_title">Видеовизитка</div>
         <button class="close" onclick="closeVideo()">×</button>
       </div>
       <div class="body">
         <video id="videoPlayer" controls playsinline preload="metadata">
           <source src="video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает видео.
+          Your browser does not support video.
         </video>
       </div>
     </div>
   </div>
 
   <script>
+    // ---------- AUTO LOCALE (no IP, uses timezone + browser language) ----------
+    function isCISGroup() {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      const lang = (navigator.language || "").toLowerCase();
+
+      // Timezones for: Russia, Kazakhstan, Belarus, Tajikistan, Uzbekistan, Kyrgyzstan
+      const cisTz = new Set([
+        "Europe/Moscow","Europe/Kaliningrad","Europe/Volgograd","Europe/Samara",
+        "Asia/Yekaterinburg","Asia/Omsk","Asia/Novosibirsk","Asia/Krasnoyarsk",
+        "Asia/Irkutsk","Asia/Yakutsk","Asia/Vladivostok","Asia/Magadan","Asia/Kamchatka",
+        "Asia/Almaty","Asia/Aqtau","Asia/Aqtobe","Asia/Atyrau","Asia/Oral","Asia/Qyzylorda",
+        "Europe/Minsk",
+        "Asia/Dushanbe",
+        "Asia/Tashkent","Asia/Samarkand",
+        "Asia/Bishkek"
+      ]);
+
+      // If timezone clearly matches CIS group -> RU
+      if (cisTz.has(tz)) return true;
+
+      // If browser language is Russian -> RU (fallback)
+      if (lang.startsWith("ru")) return true;
+
+      return false;
+    }
+
+    function setText(id, text){
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function setHref(id, href){
+      const el = document.getElementById(id);
+      if (el) el.href = href;
+    }
+
+    (function initLocale(){
+      const useRU = isCISGroup();
+
+      // Address variants
+      const addrRU = "Москва, Нагорная ул., 17, к. 6";
+      const addrEN = "Moscow, Nagornaya St., 17, bldg 6";
+
+      // Map URLs
+      const yandex = "https://yandex.ru/maps/?text=" + encodeURIComponent(addrRU);
+      const google = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addrEN);
+
+      const dictRU = {
+        name: "Сулумов Заур Рамзанович",
+        title: "Врач травматолог-ортопед",
+        call: "ПОЗВОНИТЬ",
+        email: "EMAIL",
+        map: "КАРТА",
+        video: "🎥 Видеовизитка врача",
+        videoHint: "1 минута — нажмите, чтобы посмотреть",
+        phoneLabel: "Телефон",
+        emailLabel: "Email",
+        addrLabel: "Адрес",
+        showOnMap: "Показать на карте",
+        siteLabel: "Сайт",
+        review: "Оставить отзыв в ПроДокторов",
+        reviewLabel: "Отзывы пациентов",
+        save: "СОХРАНИТЬ КОНТАКТ",
+        modalTitle: "Видеовизитка",
+        whatsapp: "WHATSAPP",
+        telegram: "TELEGRAM",
+        addr: addrRU,
+        mapUrl: yandex
+      };
+
+      const dictEN = {
+        name: "Zaur Sulumov",
+        title: "Orthopedic Trauma Surgeon",
+        call: "CALL",
+        email: "EMAIL",
+        map: "MAP",
+        video: "🎥 Doctor intro video",
+        videoHint: "1 minute — tap to watch",
+        phoneLabel: "Phone",
+        emailLabel: "Email",
+        addrLabel: "Address",
+        showOnMap: "Open in Maps",
+        siteLabel: "Website",
+        review: "Leave a review on ProDoctorov",
+        reviewLabel: "Patient reviews",
+        save: "SAVE CONTACT",
+        modalTitle: "Intro video",
+        whatsapp: "WHATSAPP",
+        telegram: "TELEGRAM",
+        addr: addrEN,
+        mapUrl: google
+      };
+
+      const t = useRU ? dictRU : dictEN;
+
+      setText("t_name", t.name);
+      setText("t_title", t.title);
+      setText("t_call", t.call);
+      setText("t_email", t.email);
+      setText("t_map", t.map);
+
+      setText("t_video", t.video);
+      setText("t_video_hint", t.videoHint);
+
+      setText("t_phone_label", t.phoneLabel);
+      setText("t_email_label", t.emailLabel);
+
+      setText("t_addr_value", t.addr);
+      setText("t_addr_label", t.addrLabel);
+
+      setText("t_site_label", t.siteLabel);
+
+      setText("t_review_label", t.reviewLabel);
+      // Review text is inside <a>, so update its textContent:
+      const reviewA = document.getElementById("a_review");
+      if (reviewA) reviewA.textContent = t.review;
+
+      setText("t_save", t.save);
+      setText("t_modal_title", t.modalTitle);
+
+      setText("t_whatsapp", t.whatsapp);
+      setText("t_telegram", t.telegram);
+
+      // Map links (top + inline) switch between Yandex/Google
+      setHref("a_map_top", t.mapUrl);
+      setHref("a_map_inline", t.mapUrl);
+
+      // Inline map label
+      const inline = document.getElementById("a_map_inline");
+      if (inline) inline.textContent = t.showOnMap;
+
+      // Set document lang
+      document.documentElement.lang = useRU ? "ru" : "en";
+    })();
+
+    // ---------- VIDEO MODAL ----------
     function openVideo(){
       const m = document.getElementById('videoModal');
       const v = document.getElementById('videoPlayer');
