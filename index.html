@@ -349,7 +349,7 @@ a.link:hover{text-decoration:underline}
         <a class="link" id="mapInline" target="_blank" rel="noopener">Показать на карте</a>
       </div>
       <div class="value" id="addr" style="margin-top:6px;">Москва, Нагорная ул., 17, к. 6</div>
-      <div class="label">Адрес</div>
+      <div class="label" id="addrLbl">Адрес</div>
     </div>
 
     <!-- ✅ 2) www.sulumov.com -->
@@ -357,14 +357,14 @@ a.link:hover{text-decoration:underline}
       <div class="value">
         <a class="link" href="https://www.sulumov.com" target="_blank" rel="noopener">www.sulumov.com</a>
       </div>
-      <div class="label">Сайт</div>
+      <div class="label" id="siteLbl">Сайт</div>
     </div>
 
     <div class="row">
-      <a class="link" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
+      <a class="link" id="reviewLink" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
         Оставить отзыв на ПроДокторов
       </a>
-      <div class="label">Отзывы пациентов</div>
+      <div class="label" id="reviewsLbl">Отзывы пациентов</div>
     </div>
 
     <div class="btnRow">
@@ -413,6 +413,12 @@ const videoText = document.getElementById('videoText');
 const videoHint = document.getElementById('videoHint');
 const saveText = document.getElementById('saveText');
 
+/* ДОБАВЛЕНО ДЛЯ ПОЛНОГО ПЕРЕВОДА */
+const addrLbl = document.getElementById('addrLbl');
+const siteLbl = document.getElementById('siteLbl');
+const reviewLink = document.getElementById('reviewLink');
+const reviewsLbl = document.getElementById('reviewsLbl');
+
 const video = document.getElementById('video');
 const videoSource = document.getElementById('videoSource');
 
@@ -441,6 +447,12 @@ function setLang(l){
 
     addrEl.textContent = addrRU;
     mapInline.textContent = 'Показать на карте';
+    addrLbl.textContent = 'Адрес';
+
+    siteLbl.textContent = 'Сайт';
+    reviewLink.textContent = 'Оставить отзыв на ПроДокторов';
+    reviewsLbl.textContent = 'Отзывы пациентов';
+
     const y = 'https://yandex.ru/maps/?text=' + encodeURIComponent(addrRU);
     mapTop.href = y;
     mapInline.href = y;
@@ -460,6 +472,12 @@ function setLang(l){
 
     addrEl.textContent = addrEN;
     mapInline.textContent = 'Open in Maps';
+    addrLbl.textContent = 'Address';
+
+    siteLbl.textContent = 'Website';
+    reviewLink.textContent = 'Leave a review on ProDoctorov';
+    reviewsLbl.textContent = 'Patient reviews';
+
     const g = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addrEN);
     mapTop.href = g;
     mapInline.href = g;
