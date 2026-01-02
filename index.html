@@ -28,7 +28,7 @@ body{
   color:var(--text);
 }
 
-/* ---------- АНИМАЦИИ (общие) ---------- */
+/* ---------- АНИМАЦИИ ---------- */
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important; transition:none !important;}
 }
@@ -77,13 +77,11 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   color:var(--brand-dark);
 }
 
-/* Верхние 3 кнопки */
+/* ✅ Верхние 3 кнопки с ПРОБЕЛАМИ вместо линий */
 .actions{
   display:flex;
+  gap:10px;                 /* <-- пробелы */
   margin-top:16px;
-  border-radius:12px;
-  overflow:hidden;
-  background:rgba(255,255,255,.12);
 }
 .actions a{
   flex:1;
@@ -91,22 +89,12 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   text-decoration:none;
   color:#fff;
   font-weight:800;
-  position:relative;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
   transition: transform .12s ease, background-color .12s ease;
 }
-.actions a:hover{ background: rgba(255,255,255,.10); }
+.actions a:hover{ background: rgba(255,255,255,.18); }
 .actions a:active{ transform: scale(.98); }
-
-/* ✅ Вертикальные разделители ДО КРАЁВ */
-.actions a:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  top:0;
-  right:0;
-  width:1px;
-  height:100%;
-  background:rgba(255,255,255,.35);
-}
 
 /* Видео кнопка */
 .videoBar{
@@ -117,7 +105,7 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
 }
 .videoBtn{
   width:100%;
-  background:var(--brand); /* ✅ общий зеленый */
+  background:var(--brand);
   color:#fff;
   border:none;
   padding:12px 14px;
@@ -137,7 +125,7 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   font-weight:700;
 }
 
-/* Карточка контактов */
+/* Карточка */
 .card{
   background:#fff;
   margin:14px 16px;
@@ -150,7 +138,6 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   from{ opacity:0; transform: translateY(10px); }
   to{ opacity:1; transform:none; }
 }
-
 .row{
   padding:14px 16px;
   border-top:1px solid var(--line);
@@ -163,7 +150,7 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
 a.link{color:var(--brand);text-decoration:none;font-weight:800}
 a.link:hover{text-decoration:underline}
 
-/* Кнопки WA/TG */
+/* WA/TG */
 .btnRow{
   display:flex;
   gap:12px;
@@ -172,13 +159,16 @@ a.link:hover{text-decoration:underline}
 .btn{
   flex:1;
   padding:14px;
-  text-align:center;
   border-radius:12px;
   text-decoration:none;
   color:#fff;
   font-weight:900;
   box-shadow:0 10px 18px rgba(0,0,0,.08);
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 }
 .btn:hover{ filter: brightness(1.02); }
 .btn:active{
@@ -188,7 +178,14 @@ a.link:hover{text-decoration:underline}
 .btn.wa{background:var(--brand)}
 .btn.tg{background:var(--tg)}
 
-/* Сохранить контакт */
+.icon{
+  width:22px;
+  height:22px;
+  display:inline-block;
+}
+.icon svg{width:100%;height:100%;display:block;fill:#fff}
+
+/* SAVE CONTACT */
 .btnSave{
   display:block;
   margin:12px 16px 16px;
@@ -200,13 +197,12 @@ a.link:hover{text-decoration:underline}
   color:#222;
   background:#fff;
   border:1px solid #e6e6e6;
-  box-shadow:none;
-  transition: transform .12s ease, background-color .12s ease, border-color .12s ease;
+  transition: transform .12s ease, background-color .12s ease;
 }
 .btnSave:hover{ background:#fafafa; }
 .btnSave:active{ transform: scale(.98); }
 
-/* ---------- МОДАЛКА ВИДЕО ---------- */
+/* Модалка */
 #videoModal{
   display:none;
   position:fixed;
@@ -215,42 +211,34 @@ a.link:hover{text-decoration:underline}
   z-index:9999;
   opacity:0;
   transition: opacity .18s ease, background-color .18s ease;
-  padding: 24px; /* ✅ чтобы на ПК не прилипало к краям */
+  padding:24px;
 }
 #videoModal.open{
   display:block;
   opacity:1;
   background:rgba(0,0,0,.65);
 }
-
-/* ✅ Ограничиваем размер модалки на ПК */
 #videoModal .box{
-  width: min(720px, 100%);   /* <= было слишком широко */
-  margin: 0 auto;
+  width:min(720px,100%);
+  margin:0 auto;
   background:#fff;
   border-radius:16px;
   overflow:hidden;
-  transform: scale(.96);
+  transform:scale(.96);
   opacity:0;
   transition: transform .22s ease, opacity .22s ease;
   box-shadow:0 18px 40px rgba(0,0,0,.30);
-  position: relative;
-  top: 24px;
+  position:relative;
+  top:24px;
 }
-#videoModal.open .box{
-  transform: scale(1);
-  opacity:1;
-}
-
-/* ✅ Видео не больше высоты экрана */
+#videoModal.open .box{transform:scale(1);opacity:1}
 #videoModal video{
   width:100%;
   display:block;
   background:#000;
-  max-height: 75vh;     /* <= главное ограничение */
-  object-fit: contain;
+  max-height:75vh;
+  object-fit:contain;
 }
-
 .close{
   position:absolute;
   right:16px;
@@ -263,18 +251,17 @@ a.link:hover{text-decoration:underline}
   color:#111;
 }
 
-/* Мобилки */
 @media (max-width:420px){
   .btnRow{gap:10px;}
-  #videoModal{ padding: 10px; }
-  #videoModal .box{ top: 10px; }
-  #videoModal video{ max-height: 70vh; }
+  #videoModal{padding:10px;}
+  #videoModal .box{top:10px;}
+  #videoModal video{max-height:70vh;}
+  .actions{gap:8px;}
 }
 </style>
 </head>
 
 <body>
-
 <div class="shell">
 
   <div class="hero">
@@ -332,10 +319,24 @@ a.link:hover{text-decoration:underline}
 
     <div class="btnRow">
       <a class="btn wa" href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank" rel="noopener">
-        WHATSAPP
+        <span class="icon" aria-hidden="true">
+          <!-- WhatsApp SVG -->
+          <svg viewBox="0 0 32 32">
+            <path d="M19.11 17.45c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.35 0 1.39 1.01 2.74 1.15 2.93.14.19 1.99 3.04 4.82 4.26.67.29 1.19.46 1.6.59.67.21 1.29.18 1.77.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
+            <path d="M26.66 5.34A13.14 13.14 0 0016 .99C8.82.99 3 6.81 3 13.99c0 2.3.6 4.55 1.74 6.55L3 31l10.69-1.7a13 13 0 006.31 1.6h.01c7.18 0 13-5.82 13-13 0-3.47-1.35-6.74-3.75-9.56zM16 28.78h-.01a10.86 10.86 0 01-5.54-1.52l-.4-.24-6.34 1.01 1.02-6.18-.26-.4a10.88 10.88 0 01-1.66-5.79C2.81 8.26 8.26 2.81 15.99 2.81c2.9 0 5.63 1.13 7.68 3.18a10.79 10.79 0 013.18 7.67c0 7.73-5.45 13.12-10.85 13.12z"/>
+          </svg>
+        </span>
+        <span>WHATSAPP</span>
       </a>
+
       <a class="btn tg" href="https://t.me/DrSulumov" target="_blank" rel="noopener">
-        TELEGRAM
+        <span class="icon" aria-hidden="true">
+          <!-- Telegram SVG -->
+          <svg viewBox="0 0 32 32">
+            <path d="M29.7 6.2L26 26.6c-.3 1.5-1.1 1.9-2.3 1.2l-6.4-4.7-3.1 3c-.3.3-.6.6-1.2.6l.4-6.7L25.6 9.5c.5-.4-.1-.7-.7-.3L10 18.6 3.6 16.6c-1.4-.4-1.4-1.4.3-2.1L28 5.1c1.2-.5 2.2.3 1.7 1.1z"/>
+          </svg>
+        </span>
+        <span>TELEGRAM</span>
       </a>
     </div>
 
@@ -429,7 +430,7 @@ function setLang(l){
   }
 }
 
-/* --- Video modal open/close with soft animation --- */
+/* Video modal */
 const modal = document.getElementById('videoModal');
 
 function openVideo(){
@@ -444,7 +445,7 @@ function closeVideo(){
   setTimeout(()=>{ modal.style.display = 'none'; }, 180);
 }
 
-/* init: respect saved choice */
+/* init */
 (function init(){
   const forced = localStorage.getItem('force_lang');
   if(forced === 'en' || forced === 'ru'){
