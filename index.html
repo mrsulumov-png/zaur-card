@@ -322,9 +322,10 @@ a.link:hover{text-decoration:underline}
     <div class="subtitle" id="title">Врач травматолог-ортопед</div>
 
     <div class="actions">
-      <a href="tel:+79267141746">📞<br><span id="call">ПОЗВОНИТЬ</span></a>
-      <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
-      <a id="mapTop" target="_blank" rel="noopener">📍<br><span id="map">КАРТА</span></a>
+     <a id="homeBtn" target="_blank">🏠<br><span id="homeText">ДОМОЙ</span></a>
+     <a href="tel:+79267141746">📞<br><span id="call">ПОЗВОНИТЬ</span></a>
+     <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
+     <a id="mapTop" target="_blank" rel="noopener">📍<br><span id="map">КАРТА</span></a>
     </div>
   </div>
 
@@ -415,7 +416,9 @@ const phoneLbl = document.getElementById('phoneLbl');
 const videoText = document.getElementById('videoText');
 const videoHint = document.getElementById('videoHint');
 const saveText = document.getElementById('saveText');
-
+const homeBtn = document.getElementById('homeBtn');
+const homeText = document.getElementById('homeText');
+  
 /* ДОБАВЛЕНО ДЛЯ ПОЛНОГО ПЕРЕВОДА */
 const addrLbl = document.getElementById('addrLbl');
 const siteLbl = document.getElementById('siteLbl');
@@ -455,7 +458,9 @@ function setLang(l){
     siteLbl.textContent = 'Сайт';
     reviewLink.textContent = 'Оставить отзыв на ПроДокторов';
     reviewsLbl.textContent = 'Отзывы пациентов';
-
+    homeText.textContent = 'ДОМОЙ';
+    homeBtn.href = 'https://sulumov.com';
+    
     const y = 'https://yandex.ru/maps/?text=' + encodeURIComponent(addrRU);
     mapTop.href = y;
     mapInline.href = y;
@@ -480,6 +485,8 @@ function setLang(l){
     siteLbl.textContent = 'Website';
     reviewLink.textContent = 'Leave a review on ProDoctorov';
     reviewsLbl.textContent = 'Patient reviews';
+    homeText.textContent = 'HOME';
+    homeBtn.href = 'https://sulumov.com/en';
 
     const g = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addrEN);
     mapTop.href = g;
