@@ -61,6 +61,30 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   border-radius:999px;
   padding:2px;
 }
+
+/* HOME BUTTON (top-left, same UI style as language toggle) */
+.homeTop{
+  position:absolute;
+  top:12px;
+  left:12px;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.18);
+  border-radius:999px;
+  text-decoration:none;
+  transition: transform .12s ease, background-color .12s ease;
+}
+.homeTop:hover{ background:rgba(255,255,255,.28); }
+.homeTop:active{ transform: scale(.95); }
+.homeTop svg{
+  width:22px;
+  height:22px;
+  fill:#fff;
+}
+
 .langToggle button{
   border:none;
   background:transparent;
@@ -312,6 +336,13 @@ a.link:hover{text-decoration:underline}
 <div class="shell">
 
   <div class="hero">
+    <!-- HOME BUTTON -->
+    <a id="homeTop" class="homeTop" target="_blank" rel="noopener" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3z"/>
+      </svg>
+    </a>
+
     <div class="langToggle">
       <button id="ru" class="active" onclick="setLang('ru')">RU</button>
       <button id="en" onclick="setLang('en')">EN</button>
@@ -322,10 +353,9 @@ a.link:hover{text-decoration:underline}
     <div class="subtitle" id="title">Врач травматолог-ортопед</div>
 
     <div class="actions">
-     <a id="homeBtn" target="_blank">🏠<br><span id="homeText">ДОМОЙ</span></a>
-     <a href="tel:+79267141746">📞<br><span id="call">ПОЗВОНИТЬ</span></a>
-     <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
-     <a id="mapTop" target="_blank" rel="noopener">📍<br><span id="map">КАРТА</span></a>
+      <a href="tel:+79267141746">📞<br><span id="call">ПОЗВОНИТЬ</span></a>
+      <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
+      <a id="mapTop" target="_blank" rel="noopener">📍<br><span id="map">КАРТА</span></a>
     </div>
   </div>
 
@@ -416,14 +446,15 @@ const phoneLbl = document.getElementById('phoneLbl');
 const videoText = document.getElementById('videoText');
 const videoHint = document.getElementById('videoHint');
 const saveText = document.getElementById('saveText');
-const homeBtn = document.getElementById('homeBtn');
-const homeText = document.getElementById('homeText');
-  
+
 /* ДОБАВЛЕНО ДЛЯ ПОЛНОГО ПЕРЕВОДА */
 const addrLbl = document.getElementById('addrLbl');
 const siteLbl = document.getElementById('siteLbl');
 const reviewLink = document.getElementById('reviewLink');
 const reviewsLbl = document.getElementById('reviewsLbl');
+
+/* HOME BUTTON */
+const homeTop = document.getElementById('homeTop');
 
 const video = document.getElementById('video');
 const videoSource = document.getElementById('videoSource');
@@ -458,9 +489,10 @@ function setLang(l){
     siteLbl.textContent = 'Сайт';
     reviewLink.textContent = 'Оставить отзыв на ПроДокторов';
     reviewsLbl.textContent = 'Отзывы пациентов';
-    homeText.textContent = 'ДОМОЙ';
-    homeBtn.href = 'https://sulumov.com';
-    
+
+    /* HOME BUTTON URL */
+    homeTop.href = 'https://sulumov.com';
+
     const y = 'https://yandex.ru/maps/?text=' + encodeURIComponent(addrRU);
     mapTop.href = y;
     mapInline.href = y;
@@ -485,8 +517,9 @@ function setLang(l){
     siteLbl.textContent = 'Website';
     reviewLink.textContent = 'Leave a review on ProDoctorov';
     reviewsLbl.textContent = 'Patient reviews';
-    homeText.textContent = 'HOME';
-    homeBtn.href = 'https://sulumov.com/en';
+
+    /* HOME BUTTON URL */
+    homeTop.href = 'https://sulumov.com/en';
 
     const g = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addrEN);
     mapTop.href = g;
