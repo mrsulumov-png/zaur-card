@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Сулумов Заур Рамзанович</title>
+
+<title>Анита — Dune Estate</title>
 
 <style>
 :root{
-  --brand:#088686;
-  --brand-dark:#058F8F;
-  --tg:#137BA5;
-  --bg:#f3f3f3;
+  --brand:#47060C;
+  --brand-light:#6A1A22;
+  --accent:#D5BEB2;
+  --bg:#f5f3f2;
   --card:#fff;
-  --line:#ededed;
   --text:#222;
   --muted:#7a7a7a;
-  --radius:14px;
-  --shadow:0 12px 28px rgba(0,0,0,.10);
+  --radius:16px;
+  --shadow:0 15px 35px rgba(0,0,0,.12);
   --max:560px;
 }
 
@@ -28,85 +28,43 @@ body{
   color:var(--text);
 }
 
-/* ---------- АНИМАЦИИ ---------- */
-@media (prefers-reduced-motion: reduce){
-  *{animation:none !important; transition:none !important;}
-}
-
 .shell{max-width:var(--max);margin:0 auto}
 
+/* HERO */
 .hero{
   background:var(--brand);
   color:#fff;
-  padding:28px 16px 14px;
+  padding:30px 20px 20px;
   text-align:center;
-  position:relative;
 }
 
 .avatar{
-  width:92px;height:92px;
+  width:100px;
+  height:100px;
   border-radius:50%;
-  border:3px solid rgba(255,255,255,.35);
   object-fit:cover;
+  border:3px solid rgba(255,255,255,.3);
 }
 
-h1{margin:14px 0 6px;font-size:26px;font-weight:800}
-.subtitle{opacity:.95}
-
-.langToggle{
-  position:absolute;
-  top:12px;right:12px;
-  display:flex;
-  background:rgba(255,255,255,.18);
-  border-radius:999px;
-  padding:2px;
-}
-
-/* HOME BUTTON (top-left, same UI style as language toggle) */
-.homeTop{
-  position:absolute;
-  top:12px;
-  left:12px;
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,.18);
-  border-radius:999px;
-  text-decoration:none;
-  transition: transform .12s ease, background-color .12s ease;
-}
-.homeTop:hover{ background:rgba(255,255,255,.28); }
-.homeTop:active{ transform: scale(.95); }
-.homeTop svg{
-  width:22px;
-  height:22px;
-  fill:#fff;
-}
-
-.langToggle button{
-  border:none;
-  background:transparent;
-  color:#fff;
+h1{
+  margin:18px 0 6px;
+  font-size:26px;
   font-weight:800;
-  padding:6px 10px;
-  border-radius:999px;
-  cursor:pointer;
-  transition: transform .12s ease, background-color .12s ease;
-}
-.langToggle button:active{ transform: scale(.97); }
-.langToggle button.active{
-  background:#fff;
-  color:var(--brand-dark);
 }
 
-/* Верхние 3 кнопки */
+.subtitle{
+  font-size:14px;
+  opacity:.95;
+  line-height:1.6;
+}
+
+/* ACTION BUTTONS */
 .actions{
   display:flex;
   gap:10px;
-  margin-top:16px;
+  margin-top:18px;
 }
+
 .actions a{
   flex:1;
   padding:14px 6px;
@@ -115,451 +73,172 @@ h1{margin:14px 0 6px;font-size:26px;font-weight:800}
   font-weight:800;
   border-radius:12px;
   background:rgba(255,255,255,.12);
-  transition: transform .12s ease, background-color .12s ease;
-}
-.actions a:hover{ background: rgba(255,255,255,.18); }
-.actions a:active{ transform: scale(.98); }
-
-/* Видео кнопка */
-.videoBar{
-  margin:12px 16px 0;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 10px 18px rgba(0,0,0,.08);
-}
-.videoBtn{
-  width:100%;
-  background:var(--brand);
-  color:#fff;
-  border:none;
-  padding:12px 14px;
-  font-weight:900;
-  cursor:pointer;
-  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
-}
-.videoBtn:hover{ filter: brightness(1.03); }
-.videoBtn:active{
-  transform: scale(.99);
-  box-shadow:0 6px 12px rgba(0,0,0,.12);
-}
-.videoBtn small{
-  display:block;
-  margin-top:4px;
-  opacity:.9;
-  font-weight:700;
+  font-size:13px;
 }
 
-/* Карточка */
+/* CARD */
 .card{
   background:#fff;
-  margin:14px 16px;
+  margin:16px;
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   overflow:hidden;
-  animation: fadeUp .40s ease-out both;
 }
-@keyframes fadeUp{
-  from{ opacity:0; transform: translateY(10px); }
-  to{ opacity:1; transform:none; }
-}
+
 .row{
-  padding:14px 16px;
-  border-top:1px solid var(--line);
+  padding:16px;
+  border-top:1px solid #eee;
 }
+
 .row:first-child{border-top:none}
 
-.value{font-size:16px;font-weight:700}
-.label{font-size:12px;color:var(--muted);margin-top:4px}
+.value{
+  font-size:16px;
+  font-weight:700;
+}
 
-/* ✅ Ссылки в карточке — чёрные, но кликабельные */
-a.link{
-  color:var(--text);
+.label{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.link{
+  color:#222;
   text-decoration:none;
   font-weight:800;
 }
-a.link:hover{text-decoration:underline}
 
-/* WA/TG */
+/* PROJECT DROPDOWN */
+.dropdown{
+  cursor:pointer;
+}
+
+.dropdownContent{
+  display:none;
+  padding-top:10px;
+}
+
+.dropdownContent a{
+  display:block;
+  padding:10px 0;
+  text-decoration:none;
+  color:#47060C;
+  font-weight:700;
+}
+
+/* BUTTONS */
 .btnRow{
   display:flex;
   gap:12px;
-  padding:14px 16px 0;
+  padding:16px;
 }
+
 .btn{
   flex:1;
   padding:14px;
-  border-radius:12px;
+  border-radius:14px;
   text-decoration:none;
   color:#fff;
   font-weight:900;
-  box-shadow:0 10px 18px rgba(0,0,0,.08);
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-.btn:hover{ filter: brightness(1.02); }
-.btn:active{
-  transform: scale(.97);
-  box-shadow:0 6px 12px rgba(0,0,0,.12);
-}
-.btn.wa { background: #25D366; } /* WhatsApp green */
-.btn.wa:hover {
-  background: #1EBE5D;
-}
-.btn.tg{background:var(--tg)}
-
-/* ✅ PNG иконки */
-.picon{
-  width:22px;
-  height:22px;
-  display:inline-block;
-  object-fit:contain;
-  transform: translateY(1px);
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.08));
+  text-align:center;
 }
 
-/* SAVE CONTACT */
+.btn.wa{background:#25D366}
+.btn.tg{background:#229ED9}
+
 .btnSave{
   display:block;
-  margin:12px 16px 16px;
+  margin:0 16px 16px;
   padding:14px;
-  border-radius:12px;
+  border-radius:14px;
   text-align:center;
   font-weight:900;
   text-decoration:none;
   color:#222;
   background:#fff;
-  border:1px solid #e6e6e6;
-  transition: transform .12s ease, background-color .12s ease;
-}
-.btnSave:hover{ background:#fafafa; }
-.btnSave:active{ transform: scale(.98); }
-
-/* Модалка */
-#videoModal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.0);
-  z-index:9999;
-  opacity:0;
-  transition: opacity .18s ease, background-color .18s ease;
-  padding:24px;
-}
-#videoModal.open{
-  display:block;
-  opacity:1;
-  background:rgba(0,0,0,.65);
-}
-#videoModal .box{
-  width:min(720px,100%);
-  margin:0 auto;
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  transform:scale(.96);
-  opacity:0;
-  transition: transform .22s ease, opacity .22s ease;
-  box-shadow:0 18px 40px rgba(0,0,0,.30);
-  position:relative;
-  top:24px;
-}
-
-/* рамка под видео */
-.videoFrame{
-  width:100%;
-  background:#000;
-}
-
-/* ПК/десктоп: без обрезки, аккуратно */
-#videoModal.open .box{transform:scale(1);opacity:1}
-#videoModal video{
-  width:100%;
-  height:auto;
-  display:block;
-  background:#000;
-  max-height:75vh;
-  object-fit:contain;
-}
-.close{
-  position:absolute;
-  right:16px;
-  top:10px;
-  font-size:24px;
-  background:none;
-  border:none;
-  cursor:pointer;
-  z-index:2;
-  color:#111;
-}
-
-@media (max-width:420px){
-  .btnRow{gap:10px;}
-  #videoModal{padding:10px;}
-  #videoModal .box{top:10px;}
-  #videoModal video{max-height:70vh;}
-  .actions{gap:8px;}
-}
-
-/* Телефон: без полос */
-@media (max-width: 600px){
-  #videoModal{ padding:10px; }
-
-  #videoModal .box{
-    top:10px;
-    width:min(92vw, 430px);
-    background:transparent;
-  }
-
-  .videoFrame{
-    width:100%;
-    margin:0;
-    aspect-ratio: 9 / 16;
-    border-radius:16px;
-    overflow:hidden;
-    background:#000;
-  }
-
-  #videoModal video{
-    width:100%;
-    height:100%;
-    max-height:none;
-    object-fit:cover;
-  }
+  border:1px solid #eee;
 }
 </style>
 </head>
 
 <body>
+
 <div class="shell">
 
   <div class="hero">
-    <!-- HOME BUTTON -->
-    <a id="homeTop" class="homeTop" target="_blank" rel="noopener" aria-label="Home">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3z"/>
-      </svg>
-    </a>
 
-    <div class="langToggle">
-      <button id="ru" class="active" onclick="setLang('ru')">RU</button>
-      <button id="en" onclick="setLang('en')">EN</button>
+    <img src="anita.jpg" class="avatar">
+
+    <h1>Анита</h1>
+
+    <div class="subtitle">
+      Основатель и руководитель Dune Estate<br>
+      Недвижимость • ЧР • Дубай
     </div>
-
-    <img src="photo.jpg" class="avatar" alt="Фото">
-    <h1 id="name">Сулумов Заур Рамзанович</h1>
-    <div class="subtitle" id="title">Врач травматолог-ортопед</div>
 
     <div class="actions">
-      <a href="tel:+79267141746">📞<br><span id="call">ПОЗВОНИТЬ</span></a>
-      <a href="mailto:drsulumov@gmail.com">✉️<br>EMAIL</a>
-      <a id="mapTop" target="_blank" rel="noopener">📍<br><span id="map">КАРТА</span></a>
+      <a href="tel:+79991234567">ПОЗВОНИТЬ</a>
+      <a href="mailto:info@dunestate.com">EMAIL</a>
+      <a href="#">КАТАЛОГ</a>
     </div>
-  </div>
 
-  <div class="videoBar">
-    <button class="videoBtn" onclick="openVideo()">
-      🎥 <span id="videoText">Видеовизитка врача</span>
-      <small id="videoHint">1 минута — нажмите, чтобы посмотреть</small>
-    </button>
   </div>
 
   <div class="card">
+
     <div class="row">
-      <div class="value"><a href="tel:+79267141746" style="color:inherit;text-decoration:none">+7 926 714-17-46</a></div>
-      <div class="label" id="phoneLbl">Телефон</div>
+      <div class="value">
+        <a class="link" href="tel:+79991234567">+7 999 123-45-67</a>
+      </div>
+      <div class="label">Телефон</div>
     </div>
 
     <div class="row">
-      <div class="value"><a href="mailto:drsulumov@gmail.com" style="color:inherit;text-decoration:none">drsulumov@gmail.com</a></div>
+      <div class="value">
+        <a class="link" href="mailto:info@dunestate.com">info@dunestate.com</a>
+      </div>
       <div class="label">Email</div>
     </div>
 
-    <!-- ✅ 1) Показать на карте ВЫШЕ, адрес НИЖЕ -->
     <div class="row">
       <div class="value">
-        <a class="link" id="mapInline" target="_blank" rel="noopener">Показать на карте</a>
+        <a class="link" href="https://dunestate.com" target="_blank">dunestate.com</a>
       </div>
-      <div class="value" id="addr" style="margin-top:6px;">Москва, Нагорная ул., 17, к. 6</div>
-      <div class="label" id="addrLbl">Адрес</div>
+      <div class="label">Сайт</div>
     </div>
 
-    <!-- ✅ 2) www.sulumov.com -->
-    <div class="row">
-      <div class="value">
-        <a class="link" href="https://www.sulumov.com" target="_blank" rel="noopener">www.sulumov.com</a>
-      </div>
-      <div class="label" id="siteLbl">Сайт</div>
-    </div>
+    <!-- DROPDOWN -->
+    <div class="row dropdown" onclick="toggleProjects()">
+      <div class="value">Другие проекты ▼</div>
 
-    <div class="row">
-      <a class="link" id="reviewLink" href="https://prodoctorov.ru/moskva/vrach/373813-sulumov/" target="_blank" rel="noopener">
-        Оставить отзыв на ПроДокторов
-      </a>
-      <div class="label" id="reviewsLbl">Отзывы пациентов</div>
+      <div id="projects" class="dropdownContent">
+        <a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">
+          Кухни и шкафы Мария
+        </a>
+
+        <a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">
+          Премиальная мебель Калинка
+        </a>
+      </div>
     </div>
 
     <div class="btnRow">
-      <a class="btn wa" href="https://api.whatsapp.com/send?phone=79267141746&text=Здравствуйте,%20" target="_blank" rel="noopener">
-        <img class="picon" src="wa.png" alt="" onerror="this.style.display='none'">
-        <span>WHATSAPP</span>
-      </a>
-
-      <a class="btn tg" href="https://t.me/DrSulumov" target="_blank" rel="noopener">
-        <img class="picon" src="tg.png" alt="" onerror="this.style.display='none'">
-        <span>TELEGRAM</span>
-      </a>
+      <a class="btn wa">WHATSAPP</a>
+      <a class="btn tg">TELEGRAM</a>
     </div>
 
-    <a class="btnSave" href="contact.vcf">👤 <span id="saveText">СОХРАНИТЬ КОНТАКТ</span></a>
+    <a class="btnSave">СОХРАНИТЬ КОНТАКТ</a>
+
   </div>
 
-</div>
-
-<!-- VIDEO MODAL -->
-<div id="videoModal" onclick="closeVideo()">
-  <div class="box" onclick="event.stopPropagation()">
-    <button class="close" onclick="closeVideo()">×</button>
-
-    <div class="videoFrame">
-      <video id="video" controls playsinline preload="metadata">
-        <source id="videoSource" src="video-ru.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
 </div>
 
 <script>
-const ruBtn = document.getElementById('ru');
-const enBtn = document.getElementById('en');
-
-const nameEl = document.getElementById('name');
-const titleEl = document.getElementById('title');
-const callEl = document.getElementById('call');
-const mapEl  = document.getElementById('map');
-const addrEl = document.getElementById('addr');
-const mapTop = document.getElementById('mapTop');
-const mapInline = document.getElementById('mapInline');
-const phoneLbl = document.getElementById('phoneLbl');
-const videoText = document.getElementById('videoText');
-const videoHint = document.getElementById('videoHint');
-const saveText = document.getElementById('saveText');
-
-/* ДОБАВЛЕНО ДЛЯ ПОЛНОГО ПЕРЕВОДА */
-const addrLbl = document.getElementById('addrLbl');
-const siteLbl = document.getElementById('siteLbl');
-const reviewLink = document.getElementById('reviewLink');
-const reviewsLbl = document.getElementById('reviewsLbl');
-
-/* HOME BUTTON */
-const homeTop = document.getElementById('homeTop');
-
-const video = document.getElementById('video');
-const videoSource = document.getElementById('videoSource');
-
-const addrRU = "Москва, Нагорная ул., 17, к. 6";
-const addrEN = "Moscow, Nagornaya St., 17, bldg 6";
-
-function setVideoFile(file){
-  video.pause();
-  videoSource.src = file;
-  video.load();
+function toggleProjects(){
+  const el = document.getElementById('projects');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
 }
-
-function setLang(l){
-  localStorage.setItem('force_lang', l);
-
-  ruBtn.classList.toggle('active', l==='ru');
-  enBtn.classList.toggle('active', l==='en');
-
-  if(l==='ru'){
-    document.documentElement.lang = 'ru';
-    nameEl.textContent = 'Сулумов Заур Рамзанович';
-    titleEl.textContent = 'Врач травматолог-ортопед';
-    callEl.textContent = 'ПОЗВОНИТЬ';
-    mapEl.textContent = 'КАРТА';
-    phoneLbl.textContent = 'Телефон';
-
-    addrEl.textContent = addrRU;
-    mapInline.textContent = 'Показать на карте';
-    addrLbl.textContent = 'Адрес';
-
-    siteLbl.textContent = 'Сайт';
-    reviewLink.textContent = 'Оставить отзыв на ПроДокторов';
-    reviewsLbl.textContent = 'Отзывы пациентов';
-
-    /* HOME BUTTON URL */
-    homeTop.href = 'https://sulumov.com';
-
-    const y = 'https://yandex.ru/maps/?text=' + encodeURIComponent(addrRU);
-    mapTop.href = y;
-    mapInline.href = y;
-
-    videoText.textContent = 'Видеовизитка врача';
-    videoHint.textContent = '1 минута — нажмите, чтобы посмотреть';
-    saveText.textContent = 'СОХРАНИТЬ КОНТАКТ';
-
-    setVideoFile('video-ru.mp4');
-  }else{
-    document.documentElement.lang = 'en';
-    nameEl.textContent = 'Zaur Sulumov';
-    titleEl.textContent = 'Orthopedic Trauma Surgeon';
-    callEl.textContent = 'CALL';
-    mapEl.textContent = 'MAP';
-    phoneLbl.textContent = 'Phone';
-
-    addrEl.textContent = addrEN;
-    mapInline.textContent = 'Open in Maps';
-    addrLbl.textContent = 'Address';
-
-    siteLbl.textContent = 'Website';
-    reviewLink.textContent = 'Leave a review on ProDoctorov';
-    reviewsLbl.textContent = 'Patient reviews';
-
-    /* HOME BUTTON URL */
-    homeTop.href = 'https://sulumov.com/en';
-
-    const g = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addrEN);
-    mapTop.href = g;
-    mapInline.href = g;
-
-    videoText.textContent = 'Doctor intro video';
-    videoHint.textContent = '1 minute — tap to watch';
-    saveText.textContent = 'SAVE CONTACT';
-
-    setVideoFile('video-en.mp4');
-  }
-}
-
-/* Video modal */
-const modal = document.getElementById('videoModal');
-
-function openVideo(){
-  modal.style.display = 'block';
-  requestAnimationFrame(()=> modal.classList.add('open'));
-  video.currentTime = 0;
-  video.play().catch(()=>{});
-}
-function closeVideo(){
-  video.pause();
-  modal.classList.remove('open');
-  setTimeout(()=>{ modal.style.display = 'none'; }, 180);
-}
-
-/* init: автоязык устройства (если пользователь ещё не выбирал руками) */
-(function init(){
-  const forced = localStorage.getItem('force_lang');
-  if(forced === 'en' || forced === 'ru'){
-    setLang(forced);
-    return;
-  }
-
-  const devLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  const isRu = devLang.startsWith('ru');
-  setLang(isRu ? 'ru' : 'en');
-})();
 </script>
 
 </body>
